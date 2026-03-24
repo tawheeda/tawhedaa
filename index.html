@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LaOne Tawheeda Setlhoke | CV Website</title>
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --panel: rgba(255,255,255,0.03);
+      --panel-strong: rgba(255,255,255,0.05);
+      --border: rgba(255,255,255,0.1);
+      --border-soft: rgba(255,255,255,0.15);
+      --text: #ffffff;
+      --muted: rgba(255,255,255,0.72);
+      --soft: rgba(255,255,255,0.55);
+      --shadow: 0 20px 50px rgba(0,0,0,0.22);
+      --radius-xl: 32px;
+      --radius-lg: 28px;
+      --radius-md: 22px;
+      --max: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    ::selection {
+      background: #ffffff;
+      color: #000000;
+    }
+
+    .container {
+      width: min(calc(100% - 48px), var(--max));
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      isolation: isolate;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto;
+      border-radius: 999px;
+      filter: blur(40px);
+      pointer-events: none;
+      opacity: 0.55;
+      z-index: -1;
+    }
+
+    .hero::before {
+      width: 420px;
+      height: 420px;
+      right: -80px;
+      top: -120px;
+      background: radial-gradient(circle, rgba(255,255,255,0.16), transparent 65%);
+    }
+
+    .hero::after {
+      width: 320px;
+      height: 320px;
+      left: -80px;
+      top: 120px;
+      background: radial-gradient(circle, rgba(255,255,255,0.10), transparent 70%);
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 40px;
+      align-items: end;
+      padding: 88px 0 96px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 16px;
+      border: 1px solid var(--border-soft);
+      border-radius: 999px;
+      font-size: 14px;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      background: rgba(255,255,255,0.02);
+    }
+
+    h1 {
+      margin: 18px 0 0;
+      font-size: clamp(3rem, 8vw, 5.4rem);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+    }
+
+    .hero-copy {
+      margin-top: 24px;
+      max-width: 700px;
+      font-size: clamp(1.08rem, 2vw, 1.32rem);
+      line-height: 1.8;
+      color: var(--muted);
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .pill {
+      border: 1px solid var(--border-soft);
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.82);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 30px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .section {
+      padding: 52px 0;
+    }
+
+    .section-tight { padding-top: 28px; }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .strength {
+      padding: 26px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      box-shadow: var(--shadow);
+      color: var(--muted);
+      min-height: 100%;
+    }
+
+    .main-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .stack { display: grid; gap: 28px; }
+
+    .kicker {
+      margin: 0;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .section-title {
+      margin: 10px 0 0;
+      font-size: 2rem;
+      line-height: 1.1;
+    }
+
+    .group + .group { margin-top: 28px; }
+
+    .group h3 {
+      margin: 0 0 12px;
+      font-size: 1.1rem;
+    }
+
+    .chip-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--panel-strong);
+      padding: 9px 14px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .edu-list,
+    .note-list,
+    .special-grid,
+    .timeline {
+      display: grid;
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .edu-item,
+    .note-item,
+    .special-item,
+    .job {
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.22);
+      border-radius: var(--radius-md);
+    }
+
+    .edu-item,
+    .note-item,
+    .special-item {
+      padding: 18px 18px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .special-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .special-item {
+      background: transparent;
+      padding: 16px;
+    }
+
+    .experience-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .range-pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 14px;
+      color: var(--soft);
+      white-space: nowrap;
+    }
+
+    .job {
+      padding: 24px;
+    }
+
+    .job-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .job h3 {
+      margin: 0;
+      font-size: 1.3rem;
+    }
+
+    .company {
+      margin-top: 6px;
+      color: var(--soft);
+    }
+
+    .date-badge {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 14px;
+      color: var(--soft);
+      white-space: nowrap;
+    }
+
+    .job ul {
+      margin: 20px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .job li {
+      display: grid;
+      grid-template-columns: 12px 1fr;
+      gap: 12px;
+      align-items: start;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.75);
+      margin-top: 10px;
+    }
+
+    .split-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0 44px;
+    }
+
+    .footer-inner {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--soft);
+      font-size: 14px;
+    }
+
+    @media (max-width: 1100px) {
+      .grid-4,
+      .special-grid,
+      .split-grid,
+      .hero-inner,
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        padding: 72px 0 80px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(calc(100% - 28px), var(--max));
+      }
+
+      .panel,
+      .job,
+      .strength {
+        padding: 22px;
+      }
+
+      .experience-head,
+      .job-top,
+      .footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .range-pill,
+      .date-badge {
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="eyebrow">Software Developer • UI/UX • Cybersecurity • Project Coordination</div>
+        <h1>LaOne Tawheeda Setlhoke</h1>
+        <p class="hero-copy">
+          Dedicated and detail-oriented Software Development graduate with expertise in web development, database management, and cybersecurity. Proficient in multiple programming languages and equipped with strong skills in software quality assurance testing and information security.
+        </p>
+        <div class="pill-row">
+          <a href="LT Setlhoke CV 2026.pdf" download class="pill" style="text-decoration:none; font-weight:500;">⬇ Download CV</a>
+          <div class="pill">Johannesburg, South Africa</div>
+          <div class="pill">065 948 5752</div>
+          <div class="pill">laone.setlhoke@gmail.com</div>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <div style="display:flex; gap:16px; align-items:center; margin-bottom:14px;">
+          <img src="ChatGPT Image Mar 24, 2026, 03_34_50 PM.png" alt="LaOne Tawheeda Setlhoke" style="width:80px; height:80px; object-fit:cover; border-radius:50%; border:1px solid var(--border);" />
+          <div>
+            <div style="font-weight:600;">LaOne Tawheeda Setlhoke</div>
+            <div style="font-size:12px; color:var(--soft);">Software Developer • UI/UX • Cybersecurity</div>
+          </div>
+        </div>
+        <p class="kicker">Profile</p>
+        <p style="margin:16px 0 0; color: var(--muted); line-height: 1.9;">
+          Dedicated and detail-oriented Software Development graduate with expertise in web development, database management, and cybersecurity. Completed web development coursework at Southern Labs Institute of Technology, enhancing proficiency in HTML5, CSS, and PHP. Currently pursuing advanced studies in cybersecurity and visual communications, with a proven ability to manage diverse responsibilities and collaborate effectively in dynamic environments.
+        </p>
+      </aside>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container grid-4">
+      <div class="strength">Strong foundation in software development, web technologies, and digital problem-solving.</div>
+      <div class="strength">Experienced in cybersecurity, web development, and maintaining structured digital workflows.</div>
+      <div class="strength">Combines communication, leadership, and project coordination in fast-paced environments.</div>
+      <div class="strength">Able to support both technical execution and people-facing responsibilities effectively.</div>
+    </div>
+  </section>
+
+  <main class="section section-tight">
+    <div class="container main-grid">
+      <div class="stack">
+        <section class="panel">
+          <p class="kicker">Core Skills</p>
+
+          <div class="group" style="margin-top: 22px;">
+            <h3>Technical</h3>
+            <div class="chip-wrap">
+              <span class="chip">HTML5</span>
+              <span class="chip">CSS</span>
+              <span class="chip">PHP</span>
+              <span class="chip">Database Management</span>
+              <span class="chip">Cybersecurity</span>
+              <span class="chip">Information Security</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <h3>Professional</h3>
+            <div class="chip-wrap">
+              <span class="chip">Communication</span>
+              <span class="chip">Problem Solving</span>
+              <span class="chip">Analytical Thinking</span>
+              <span class="chip">Team Collaboration</span>
+              <span class="chip">Adaptability</span>
+              <span class="chip">Multitasking</span>
+            </div>
+          </div>
+
+          <div class="group">
+            <h3>Leadership</h3>
+            <div class="chip-wrap">
+              <span class="chip">Time Management</span>
+              <span class="chip">Leadership</span>
+              <span class="chip">Coordination</span>
+              <span class="chip">Stakeholder Communication</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <p class="kicker">Education</p>
+          <div class="edu-list">
+            <div class="edu-item">IT Concepts, Cybersecurity &amp; Network Management (In Progress) – Southern Labs Institute of Technology</div>
+            <div class="edu-item">Visual Communications &amp; Cybersecurity – Southern Labs Institute of Technology (2025)</div>
+            <div class="edu-item">Web Development (HTML5, CSS, PHP) – Southern Labs Institute of Technology (2023)</div>
+            <div class="edu-item">Diploma in Software Development – Rosebank College (2022)</div>
+            <div class="edu-item">National Senior Certificate – KwaMhlanga Senior Secondary School (2017)</div>
+          </div>
+        </section>
+
+        <section class="panel">
+          <p class="kicker">Professional Skills</p>
+          <div class="special-grid">
+            <div class="special-item">Communication (Verbal & Written)</div>
+            <div class="special-item">Problem-Solving & Analytical Thinking</div>
+            <div class="special-item">Time Management & Multitasking</div>
+            <div class="special-item">Adaptability & Team Collaboration</div>
+            <div class="special-item">Technical Proficiency in HTML5, CSS, PHP</div>
+            <div class="special-item">Leadership & Coordination Skills</div>
+          </div>
+        </section>
+      </div>
+
+      <section class="panel">
+        <div class="experience-head">
+          <div>
+            <p class="kicker">Experience</p>
+            <h2 class="section-title">Career Journey</h2>
+          </div>
+          <div class="range-pill">2020 — Present</div>
+        </div>
+
+        <div class="timeline">
+          <article class="job">
+            <div class="job-top">
+              <div>
+                <h3>Personal Assistant</h3>
+                <div class="company">ITU Golf Wear</div>
+              </div>
+              <div class="date-badge">May 2023 – Present</div>
+            </div>
+            <ul>
+              <li><span class="dot"></span><span>Streamlined executive schedules and ensured efficient time management.</span></li>
+              <li><span class="dot"></span><span>Facilitated communication between management and stakeholders, enhancing organizational efficiency.</span></li>
+              <li><span class="dot"></span><span>Organized prestigious golf events and tournaments, improving brand visibility.</span></li>
+              <li><span class="dot"></span><span>Implemented structured administrative systems, improving record-keeping and operations.</span></li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <div class="job-top">
+              <div>
+                <h3>Client Liaison &amp; Website Maintenance</h3>
+                <div class="company">ITU Golf Wear</div>
+              </div>
+              <div class="date-badge">Feb 2022 – Apr 2023</div>
+            </div>
+            <ul>
+              <li><span class="dot"></span><span>Managed client relationships and maintained corporate website updates.</span></li>
+              <li><span class="dot"></span><span>Enhanced customer engagement through consistent communication channels.</span></li>
+              <li><span class="dot"></span><span>Coordinated digital marketing efforts to improve online presence.</span></li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <div class="job-top">
+              <div>
+                <h3>Marketing Assistant</h3>
+                <div class="company">The African Pot Market</div>
+              </div>
+              <div class="date-badge">Apr 2021 – Dec 2021</div>
+            </div>
+            <ul>
+              <li><span class="dot"></span><span>Analyzed marketing data to inform campaign decisions.</span></li>
+              <li><span class="dot"></span><span>Implemented automation tools to improve workflow efficiency.</span></li>
+              <li><span class="dot"></span><span>Collaborated with design and development teams to optimize website user experience.</span></li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <div class="job-top">
+              <div>
+                <h3>Social Media Marketer</h3>
+                <div class="company">Mpheshane</div>
+              </div>
+              <div class="date-badge">Feb 2021 – Jun 2021</div>
+            </div>
+            <ul>
+              <li><span class="dot"></span><span>Developed and executed comprehensive social media strategies.</span></li>
+              <li><span class="dot"></span><span>Created engaging digital content, increasing audience interaction.</span></li>
+              <li><span class="dot"></span><span>Monitored analytics to optimize performance and brand awareness.</span></li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <div class="job-top">
+              <div>
+                <h3>Personal Assistant</h3>
+                <div class="company">Plated on Thyme</div>
+              </div>
+              <div class="date-badge">Mar 2021 – Apr 2021</div>
+            </div>
+            <ul>
+              <li><span class="dot"></span><span>Managed catering event coordination and client communication.</span></li>
+              <li><span class="dot"></span><span>Enhanced brand presence across online platforms.</span></li>
+            </ul>
+          </article>
+
+          <article class="job">
+            <div class="job-top">
+              <div>
+                <h3>Tutor</h3>
+                <div class="company">Tswelelang Senior Primary School</div>
+              </div>
+              <div class="date-badge">Jan 2020 – Mar 2020</div>
+            </div>
+            <ul>
+              <li><span class="dot"></span><span>Taught computer literacy and supported classroom digital integration.</span></li>
+              <li><span class="dot"></span><span>Received positive feedback for interactive and effective teaching.</span></li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <section class="section">
+    <div class="container split-grid">
+      <section class="panel">
+        <p class="kicker">Volunteer Experience</p>
+        <div class="note-list">
+          <div class="note-item">SAWID (South African Women in Dialogue) – Country Delegate Coordinator (September 2023)</div>
+          <div class="note-item">AFWID (African Women in Dialogue) – Event Coordination Support (January 2025)</div>
+          <div class="note-item">G20 Youth Summit – Volunteer Coordinator / Personal Assistant to the G20 President (September 2025)</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <p class="kicker">Availability</p>
+        <div class="note-list">
+          <div class="note-item">Gender: Female</div>
+          <div class="note-item">Availability: Can be discussed</div>
+          <div class="note-item">Willing to relocate</div>
+        </div>
+      </section>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>LaOne Tawheeda Setlhoke — Software Developer, UI/UX, Cybersecurity, Project Coordination</div>
+      <div>Open to opportunities • Available for relocation</div>
+    </div>
+  </footer>
+</body>
+</html>
